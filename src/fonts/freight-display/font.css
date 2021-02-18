@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Freight Display";
+  src: url("Freight-DispBook.eot");
+  src: url("Freight-DispBook.eot?#iefix") format("embedded-opentype"),
+    url("Freight-DispBook.svg#Freight-DispBook") format("svg"),
+    url("Freight-DispBook.ttf") format("truetype"),
+    url("Freight-DispBook.woff") format("woff"),
+    url("Freight-DispBook.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}

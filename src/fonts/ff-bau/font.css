@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "FF Bau";
+  src: url("Bau-Regular.svg#Bau-Regular") format("svg"),
+    url("Bau-Regular.ttf") format("truetype"),
+    url("Bau-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FF Bau";
+  src: url("copyfonts.com_bau-regular.eot");
+  src: url("copyfonts.com_bau-regular.eot?#iefix") format("embedded-opentype"),
+    url("copyfonts.com_bau-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
