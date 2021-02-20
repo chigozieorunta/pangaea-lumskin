@@ -80,7 +80,6 @@ const Modal = ({ showModal, setShowModal, onChangeCart, cart }) => {
           {shoppingCart.map((product, idx) => {
             return (
               <>
-                <div>{product.quantity}</div>
                 <ModalItem
                   key={idx}
                   product={product}
