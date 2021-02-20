@@ -32,10 +32,8 @@ const TopRightNavigation = () => {
         </Link>
       </li>
       <li style={{ marginRight: 15 }}>
-        <select style={selectStyle}>
-          <option selected="" value="en">
-            EN
-          </option>
+        <select style={selectStyle} defaultValue={"en"}>
+          <option value="en">EN</option>
           <option value="ar">AR</option>
           <option value="fr">FR</option>
           <option value="es">ES</option>
