@@ -7,23 +7,22 @@ const HomePage = () => {
   let [cart, setCart] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
-  const loadModal = () => {
-    setShowModal(!showModal);
-  };
-
   const addToCart = (product) => {
-    loadModal();
-    if (!cart.some((item) => item.id === product.id)) {
-      setCart([...cart, product]);
-    } else {
-      let cartItem = cart.find((item) => item.id == product.id);
+    setShowModal(!showModal);
+    let cartItem = cart.find((item) => item.id == product.id);
+    if (cartItem != undefined) {
       cartItem.quantity = cartItem.quantity + 1;
       setCart(cart);
+    } else {
+      setCart([...cart, product]);
     }
   };
 
   const onChangeCartFromModal = (product, quantity) => {
-    console.log("You've have changed the Cart");
+    let cartItem = cart.find((item) => item.id == product.id);
+    cartItem.quantity = quantity;
+    setCart(cart);
+    console.log(cart);
   };
 
   return (
