@@ -5,15 +5,15 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const containerStyle = { paddingTop: "4em", paddingBottom: "4em" };
 
-const Content = () => {
+const Content = ({ onShowModal, onAddToCart }) => {
   return (
     <>
       <Section bgcolor="#e2e6e3">
         <Container style={containerStyle} fluid>
           <Row>
-            <Col sm={{ span: 8, offset: 2 }}>
+            <Col lg={{ span: 8, offset: 2 }}>
               <Row>
-                <Products />
+                <Products onShowModal={onShowModal} onAddToCart={onAddToCart} />
               </Row>
             </Col>
           </Row>
