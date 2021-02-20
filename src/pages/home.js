@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../layout/Layout";
 import Content from "../components/content/Content";
 import Modal from "../components/modal/Modal";
 
 const HomePage = () => {
   let [cart, setCart] = useState([]);
+  const [totalCost, setTotalCost] = useState(0);
   const [showModal, setShowModal] = useState(false);
+
+  const sumCart = (cart) => {
+    let cost = 0;
+    cart.forEach((item) => {
+      cost += item.quantity * item.price;
+    });
+    setTotalCost(cost);
+  };
 
   const addToCart = (product) => {
     setShowModal(!showModal);
@@ -13,8 +22,10 @@ const HomePage = () => {
     if (cartItem != undefined) {
       cartItem.quantity = cartItem.quantity + 1;
       setCart(cart);
+      sumCart(cart);
     } else {
       setCart([...cart, product]);
+      sumCart(cart);
     }
   };
 
@@ -28,6 +39,7 @@ const HomePage = () => {
       cart.splice(cartItemIndex, 1);
     }
     setCart(cart);
+    sumCart(cart);
   };
 
   return (
@@ -38,6 +50,7 @@ const HomePage = () => {
         onChangeCart={onChangeCartFromModal}
         showModal={showModal}
         setShowModal={setShowModal}
+        totalCost={totalCost}
       />
     </Layout>
   );
