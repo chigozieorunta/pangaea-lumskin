@@ -48,29 +48,31 @@ const Products = ({ onAddToCart }) => {
     return (product = Object.assign({ quantity: 1 }, product));
   });
 
-  return updatedProducts.map((product, idx) => (
-    <Col sm={6} md={4} style={colStyle}>
-      <Image
-        key={product.id}
-        alt="Product Image"
-        src={product.image_url}
-        style={{ height: 120 }}
-        fluid
-      />
-      <div style={productTitleStyle}>{product.title}</div>
-      <div>
-        From: NGN{" "}
-        {product.price
-          ? product.price.toLocaleString("en-US", {
-              minimumFractionDigits: 2,
-            })
-          : "0.00"}
-      </div>
-      <button style={buttonStyle} onClick={() => onAddToCart(product)}>
-        Add To Cart
-      </button>
-    </Col>
-  ));
+  return updatedProducts
+    .sort((a, b) => (a.title > b.title ? 1 : -1))
+    .map((product, idx) => (
+      <Col sm={6} md={4} style={colStyle}>
+        <Image
+          key={product.id}
+          alt="Product Image"
+          src={product.image_url}
+          style={{ height: 120 }}
+          fluid
+        />
+        <div style={productTitleStyle}>{product.title}</div>
+        <div>
+          From: NGN{" "}
+          {product.price
+            ? product.price.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+              })
+            : "0.00"}
+        </div>
+        <button style={buttonStyle} onClick={() => onAddToCart(product)}>
+          Add To Cart
+        </button>
+      </Col>
+    ));
 };
 
 export default Products;
