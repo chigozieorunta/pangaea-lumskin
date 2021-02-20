@@ -20,3 +20,28 @@ For this challenge we'll be recreating the luminskin.com product page and cart u
   <li>It should sum the items in the cart and display them in the correct selected currency.</li>
   <li>Ignore anything related to subscriptions</li>
 </ul>
+
+# My Solution
+
+For this challenged I have used the following tools:
+
+<ul>
+  <li>CSS - Bootstrap, React-Bootstrap</li>
+  <li>JS - React</li>
+  <li>State Management - Props Drilling (React)</li>
+  <li>Fonts - FF Bau, Freight Display</li>
+  <li>GraphQL API - Apollo Client</li>
+  <li>React Hooks - UseEffect, UseState, UseRef
+</ul>
+
+## Screenshot 1 (Full Page showing products with title, price and add to cart button)
+
+<img src="./src/images/screenshot1.png">
+
+## Screenshot 2 (Showing 2 columns for screens smaller than 768px)
+
+<img src="./src/images/screenshot2.png">
+
+## Screenshot 3 (Shopping Cart section showing all items added)
+
+<img src="./src/images/screenshot3.png">
