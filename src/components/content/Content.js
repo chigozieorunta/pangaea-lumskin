@@ -1,15 +1,13 @@
 import React from "react";
 import Section from "../../layout/Section";
-import Products from "../../components/content/Products";
+import Products from "../../components/product/Products";
 import { Container, Row, Col } from "react-bootstrap";
-
-const containerStyle = { paddingTop: "4em", paddingBottom: "4em" };
 
 const Content = ({ onShowModal, onAddToCart }) => {
   return (
     <>
       <Section bgcolor="#e2e6e3">
-        <Container style={containerStyle} fluid>
+        <Container style={styles.containerStyle} fluid>
           <Row>
             <Col lg={{ span: 8, offset: 2 }}>
               <Row>
@@ -21,6 +19,10 @@ const Content = ({ onShowModal, onAddToCart }) => {
       </Section>
     </>
   );
+};
+
+const styles = {
+  containerStyle: { paddingTop: "4em", paddingBottom: "4em" },
 };
 
 export default Content;
