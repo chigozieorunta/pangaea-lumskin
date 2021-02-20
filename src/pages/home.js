@@ -19,10 +19,15 @@ const HomePage = () => {
   };
 
   const onChangeCartFromModal = (product, quantity) => {
-    let cartItem = cart.find((item) => item.id == product.id);
-    cartItem.quantity = quantity;
+    const getProduct = (item) => item.id == product.id;
+    let cartItem = cart.find(getProduct);
+    let cartItemIndex = cart.findIndex(getProduct);
+    if (quantity) {
+      cartItem.quantity = quantity;
+    } else {
+      cart.splice(cartItemIndex, 1);
+    }
     setCart(cart);
-    console.log(cart);
   };
 
   return (
