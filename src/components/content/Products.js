@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { Col, Image } from "react-bootstrap";
 
-const colStyle = { textAlign: "center", fontSize: 16, marginBottom: "6em" };
+const colStyle = {
+  textAlign: "center",
+  fontSize: 16,
+  marginBottom: "6em",
+  position: "relative",
+};
 
-const productTitleStyle = { marginTop: 10, marginBottom: 20 };
+const productTitleStyle = {
+  marginTop: 10,
+  marginBottom: 20,
+  position: "relative",
+  display: "block",
+};
 
 const buttonStyle = {
   backgroundColor: "#4b5548",
@@ -28,28 +38,37 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-const Products = () => {
-  const { loading, error, data } = useQuery(GET_PRODUCTS);
+const Products = ({ onAddToCart }) => {
+  let { loading, error, data } = useQuery(GET_PRODUCTS);
+
   if (loading) return <p>Loading...</p>;
   if (error) return `<p>${error}</p>`;
-  return data.products.map(({ title, price, image_url }) => (
+
+  let updatedProducts = data.products.map((product, idx) => {
+    return (product = Object.assign({ quantity: 1 }, product));
+  });
+
+  return updatedProducts.map((product, idx) => (
     <Col sm={6} md={4} style={colStyle}>
       <Image
+        key={product.id}
         alt="Product Image"
-        src={image_url}
+        src={product.image_url}
         style={{ height: 120 }}
         fluid
       />
-      <div style={productTitleStyle}>{title}</div>
+      <div style={productTitleStyle}>{product.title}</div>
       <div>
         From: NGN{" "}
-        {price
-          ? price.toLocaleString("en-US", {
+        {product.price
+          ? product.price.toLocaleString("en-US", {
               minimumFractionDigits: 2,
             })
           : "0.00"}
       </div>
-      <button style={buttonStyle}>Add To Cart</button>
+      <button style={buttonStyle} onClick={() => onAddToCart(product)}>
+        Add To Cart
+      </button>
     </Col>
   ));
 };
