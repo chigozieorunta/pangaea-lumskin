@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useQuery, gql } from "@apollo/client";
-import { Col, Image } from "react-bootstrap";
+import React from "react";
+import { useQuery } from "@apollo/client";
+import { GET_PRODUCTS } from "../../utils/GetProducts";
 import ProductItem from "./ProductItem";
 
-const GET_PRODUCTS = gql`
-  query GetProducts {
-    products {
-      id
-      title
-      image_url
-      price(currency: NGN)
-    }
-  }
-`;
-
 const Products = ({ onAddToCart }) => {
-  const { loading, error, data } = useQuery(GET_PRODUCTS);
+  const results = useQuery(GET_PRODUCTS);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return `<p>${error}</p>`;
+  switch (results) {
+    case results.results:
+      return <p>Loading...</p>;
 
-  let updatedProducts = data.products.map((product, idx) => {
-    return (product = Object.assign({ quantity: 1 }, product));
+    case results.error:
+      return `<p>${results.error}</p>`;
+  }
+
+  const updatedProducts = results.data.products.map((product, idx) => {
+    return Object.assign({ quantity: 1 }, product);
   });
 
   return updatedProducts
