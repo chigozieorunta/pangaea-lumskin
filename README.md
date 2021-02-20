@@ -21,7 +21,7 @@ For this challenge we'll be recreating the luminskin.com product page and cart u
   <li>Ignore anything related to subscriptions</li>
 </ul>
 
-# My Solution
+# My Solution (Live Site - https://chigozieorunta-pangaea.netlify.app/)
 
 For this challenged I have used the following tools:
 
@@ -32,6 +32,8 @@ For this challenged I have used the following tools:
   <li>Fonts - FF Bau, Freight Display</li>
   <li>GraphQL API - Apollo Client</li>
   <li>React Hooks - UseEffect, UseState, UseRef
+  <li>CI/CD deployment - Netlify</li>
+  <li>VCS - GitHub</li>
 </ul>
 
 ## Screenshot 1 (Full Page showing products with title, price and add to cart button)
