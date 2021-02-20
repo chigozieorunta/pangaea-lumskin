@@ -40,26 +40,28 @@ const ModalItem = ({
   };
 
   return (
-    <div style={styles.modalItem}>
-      <div>
-        <div style={styles.modalItemTitle}>{title}</div>
-        <small style={styles.modalItemExcerpt}>
-          Unit Price: N{formatCost(itemPrice)}
-        </small>
-        <small style={styles.modalItemExcerpt}>
-          One time purchase of Two Month supply.
-        </small>
-        <div style={styles.modalItemDetails}>
-          <Counter
-            quantity={itemQuantity}
-            onCounterPlus={counterPlus}
-            onCounterMinus={counterMinus}
-          />
-          <span style={styles.modalItemCost}>N{formatCost(itemCost)}</span>
+    <div style={{ display: itemQuantity > 0 ? "block" : "none" }}>
+      <div style={styles.modalItem}>
+        <div>
+          <div style={styles.modalItemTitle}>{title}</div>
+          <small style={styles.modalItemExcerpt}>
+            Unit Price: N{formatCost(itemPrice)}
+          </small>
+          <small style={styles.modalItemExcerpt}>
+            One time purchase of Two Month supply.
+          </small>
+          <div style={styles.modalItemDetails}>
+            <Counter
+              quantity={itemQuantity}
+              onCounterPlus={counterPlus}
+              onCounterMinus={counterMinus}
+            />
+            <span style={styles.modalItemCost}>N{formatCost(itemCost)}</span>
+          </div>
         </div>
-      </div>
-      <div>
-        <Image style={{ height: 80 }} src={image_url} fluid />
+        <div>
+          <Image style={{ height: 80 }} src={image_url} fluid />
+        </div>
       </div>
     </div>
   );
