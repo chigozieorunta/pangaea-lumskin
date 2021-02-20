@@ -28,9 +28,7 @@ const ModalItem = ({
   };
 
   const counterMinus = () => {
-    if (itemQuantity > 1) {
-      setItemQuantity(itemQuantity - 1);
-    }
+    setItemQuantity(itemQuantity - 1);
   };
 
   const formatCost = (cost) => {
