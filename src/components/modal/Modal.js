@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import CloseIcon from "./CloseIcon";
 import CurrencyFilter from "./CurrencyFilter";
 import ModalItem from "./ModalItem";
+import ModalFooter from "./ModalFooter";
 
-const Modal = ({ showModal, setShowModal, onChangeCart, cart }) => {
+const Modal = ({ showModal, setShowModal, onChangeCart, cart, totalCost }) => {
   let [shoppingCart, setShoppingCart] = useState(cart);
 
   const closeModal = () => {
@@ -24,8 +25,8 @@ const Modal = ({ showModal, setShowModal, onChangeCart, cart }) => {
     <section style={animateModal(showModal)}>
       <section
         style={{
-          top: 0,
           left: showModal ? 0 : "-100%",
+          top: 0,
           bottom: 0,
           right: 0,
           opacity: "0.8",
@@ -43,26 +44,42 @@ const Modal = ({ showModal, setShowModal, onChangeCart, cart }) => {
         <div>
           <CurrencyFilter />
         </div>
-        <section>
+        <section style={styles.modalContent}>
           {shoppingCart.map((product, idx) => {
             return (
-              <>
-                <ModalItem
-                  key={idx}
-                  product={product}
-                  onChangeCart={onChangeCart}
-                  {...product}
-                />
-              </>
+              <ModalItem
+                key={idx}
+                product={product}
+                onChangeCart={onChangeCart}
+                {...product}
+              />
             );
           })}
         </section>
+        <ModalFooter totalCost={totalCost} />
       </section>
     </section>
   );
 };
 
 const styles = {
+  modalContent: {
+    overflowY: "auto",
+    height: "calc(100% - 260px)",
+    marginTop: 10,
+  },
+
+  modalContainer: {
+    top: 0,
+    bottom: 0,
+    right: 0,
+    opacity: "0.8",
+    width: "100%",
+    backgroundColor: "rgb(205, 209, 206)",
+    backdropFilter: "blur(3px)",
+    position: "fixed",
+  },
+
   modalContentAreaStyle: {
     backgroundColor: "#f2f2ef",
     width: 480,
