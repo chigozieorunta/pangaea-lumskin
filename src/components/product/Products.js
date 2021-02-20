@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS } from "../../utils/GetProducts";
 import ProductItem from "./ProductItem";
 
 const Products = ({ onAddToCart }) => {
-  const results = useQuery(GET_PRODUCTS);
+  const { loading, error, data } = useQuery(GET_PRODUCTS);
 
-  switch (results) {
-    case results.results:
-      return <p>Loading...</p>;
-
-    case results.error:
-      return `<p>${results.error}</p>`;
+  if (loading) {
+    return <p>Loading...</p>;
   }
 
-  const updatedProducts = results.data.products.map((product, idx) => {
+  if (error) {
+    return <p>${error}</p>;
+  }
+
+  const updatedProducts = data.products.map((product, idx) => {
     return Object.assign({ quantity: 1 }, product);
   });
 
