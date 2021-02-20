@@ -71,7 +71,7 @@ const styles = {
   modalItem: {
     padding: "15px 20px",
     backgroundColor: "#fff",
-    marginTop: 10,
+    marginBottom: 10,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
