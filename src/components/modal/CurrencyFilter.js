@@ -9,7 +9,7 @@ const modalSelect = {
 
 const CurrencyFilter = () => {
   return (
-    <select style={modalSelect}>
+    <select style={modalSelect} defaultValue={"NGN"}>
       <option value="USD"> USD </option>
       <option value="EUR"> EUR </option>
       <option value="CAD"> CAD </option>
@@ -102,10 +102,7 @@ const CurrencyFilter = () => {
       <option value="MYR"> MYR </option>
       <option value="MZN"> MZN </option>
       <option value="NAD"> NAD </option>
-      <option value="NGN" selected>
-        {" "}
-        NGN{" "}
-      </option>
+      <option value="NGN"> NGN </option>
       <option value="NIO"> NIO </option>
       <option value="NOK"> NOK </option>
       <option value="NPR"> NPR </option>
