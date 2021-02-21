@@ -1,38 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ShoppingCartIcon from "./Icon";
-
-const menuStyle = {
-  listStyle: "none",
-  margin: 0,
-  padding: 0,
-  display: "flex",
-  justifyContent: "flex-end",
-  alignItems: "center",
-  width: "72.5%",
-};
-
-const selectStyle = {
-  padding: 5,
-  width: 75,
-  backgroundColor: "transparent",
-};
+import ShoppingCartIcon from "./ShoppingCartIcon";
 
 const TopRightNavigation = () => {
   return (
-    <ul style={menuStyle}>
+    <ul style={styles.menuStyle}>
       <li>
-        <Link style={{ marginRight: 15 }} to="/shop">
+        <Link style={styles.listStyle} to="/account">
           Account
         </Link>
       </li>
       <li>
-        <Link style={{ marginRight: 15 }} to="/help">
+        <Link style={styles.listStyle} to="/cart">
           <ShoppingCartIcon />
         </Link>
       </li>
-      <li style={{ marginRight: 15 }}>
-        <select style={selectStyle} defaultValue={"en"}>
+      <li style={styles.listStyle}>
+        <select style={styles.selectStyle} defaultValue={"en"}>
           <option value="en">EN</option>
           <option value="ar">AR</option>
           <option value="fr">FR</option>
@@ -45,6 +29,26 @@ const TopRightNavigation = () => {
       </li>
     </ul>
   );
+};
+
+const styles = {
+  listStyle: { marginRight: 15 },
+
+  menuStyle: {
+    listStyle: "none",
+    margin: 0,
+    padding: 0,
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    width: "72.5%",
+  },
+
+  selectStyle: {
+    padding: 5,
+    width: 75,
+    backgroundColor: "transparent",
+  },
 };
 
 export default TopRightNavigation;
