@@ -1,16 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const menuStyle = {
-  listStyle: "none",
-  margin: 0,
-  padding: 0,
-  display: "flex",
-  justifyContent: "space-around",
-  alignItems: "center",
-  width: "15%",
-};
-
 const TopLeftNavigation = () => {
   return (
     <ul style={menuStyle}>
@@ -25,6 +15,16 @@ const TopLeftNavigation = () => {
       </li>
     </ul>
   );
+};
+
+const menuStyle = {
+  listStyle: "none",
+  margin: 0,
+  padding: 0,
+  display: "flex",
+  justifyContent: "space-around",
+  alignItems: "center",
+  width: "15%",
 };
 
 export default TopLeftNavigation;
