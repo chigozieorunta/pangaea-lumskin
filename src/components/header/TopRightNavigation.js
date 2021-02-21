@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Badge from "./Badge";
 import ShoppingCartIcon from "./ShoppingCartIcon";
 
-const TopRightNavigation = () => {
+const TopRightNavigation = ({ cart }) => {
   return (
     <ul style={styles.menuStyle}>
       <li>
@@ -13,6 +14,7 @@ const TopRightNavigation = () => {
       <li>
         <Link style={styles.listStyle} to="/cart">
           <ShoppingCartIcon />
+          <Badge total={cart.length} />
         </Link>
       </li>
       <li style={styles.listStyle}>
@@ -32,7 +34,7 @@ const TopRightNavigation = () => {
 };
 
 const styles = {
-  listStyle: { marginRight: 15 },
+  listStyle: { marginRight: 15, display: "flex" },
 
   menuStyle: {
     listStyle: "none",
