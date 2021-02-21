@@ -43,7 +43,7 @@ const HomePage = () => {
   };
 
   return (
-    <Layout>
+    <Layout cart={cart}>
       <Content onAddToCart={addToCart} />
       <Modal
         cart={cart}
