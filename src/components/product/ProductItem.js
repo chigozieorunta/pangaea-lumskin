@@ -1,15 +1,8 @@
 import React from "react";
 import { Col, Image } from "react-bootstrap";
+import { formatCost } from "../../utils/FormatCost";
 
 const ProductItem = ({ id, title, price, image_url, product, onAddToCart }) => {
-  const formatCost = (cost) => {
-    return cost
-      ? cost.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-        })
-      : "0.00";
-  };
-
   return (
     <Col key={id} sm={6} md={4} style={styles.colStyle}>
       <Image
