@@ -4,14 +4,14 @@ import TopLeftNavigation from "./TopLeftNavigation";
 import TopRightNavigation from "./TopRightNavigation";
 import Logo from "./Logo";
 
-const TopNavigationBar = () => {
+const TopNavigationBar = ({ cart }) => {
   return (
     <Container style={styles.headerStyle} fluid>
       <Row>
         <Col style={styles.colStyle}>
           <Logo />
           <TopLeftNavigation />
-          <TopRightNavigation />
+          <TopRightNavigation cart={cart} />
         </Col>
       </Row>
     </Container>
