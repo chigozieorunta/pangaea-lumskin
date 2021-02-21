@@ -38,6 +38,7 @@ const styles = {
     zIndex: 1,
     padding: "1.5em",
   },
+
   footerButton: {
     color: "#fff",
     letterSpacing: 2,
@@ -51,6 +52,7 @@ const styles = {
     textTransform: "uppercase",
     textAlign: "center",
   },
+
   footerSummary: {
     display: "flex",
     justifyContent: "space-between",
