@@ -36,7 +36,23 @@ const Modal = ({ showModal, setShowModal, onChangeCart, cart, totalCost }) => {
           position: "fixed",
         }}
       ></section>
-      <section style={styles.modalContentAreaStyle}>
+      <section
+        style={{
+          backgroundColor: "#f2f2ef",
+          width: 480,
+          maxWidth: "100%",
+          height: "100%",
+          opacity: "1",
+          backdropFilter: "none",
+          padding: "1.5em",
+          position: "fixed",
+          right: showModal ? 0 : "-480px",
+          top: 0,
+          bottom: 0,
+          zIndex: 5000,
+          transition: "all 0.3s",
+        }}
+      >
         <div style={styles.modalTitle}>
           <CloseIcon onClick={closeModal} />
           <span>Your Cart</span>
