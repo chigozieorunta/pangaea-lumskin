@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS } from "../../utils/GetProducts";
 import ProductItem from "./ProductItem";
