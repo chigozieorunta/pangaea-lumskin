@@ -1,37 +1,20 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const headerStyle = {
-  paddingTop: "6em",
-  paddingBottom: "6em",
-};
-
-const colStyle = {
-  textAlign: "left",
-  display: "flex",
-  justifyContent: "space-between",
-};
-
-const pageTitleStyle = {
-  fontFamily: "Freight Display",
-  fontSize: "3rem",
-  lineHeight: "1.125em",
-};
-
-const pageExcerptStyle = { fontSize: "1rem" };
-
 const PageBar = () => {
   return (
-    <Container style={headerStyle} fluid>
+    <Container style={styles.headerStyle} fluid>
       <Row>
-        <Col sm={{ span: 8, offset: 2 }}>
+        <Col sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
           <Row>
-            <Col style={colStyle}>
+            <Col style={styles.colStyle}>
               <div>
-                <h1 style={pageTitleStyle}>All Products</h1>
-                <span style={pageExcerptStyle}>A 360° look at Lumin</span>
+                <h1 style={styles.pageTitleStyle}>All Products</h1>
+                <span style={styles.pageExcerptStyle}>
+                  A 360° look at Lumin
+                </span>
               </div>
-              <select className="headerfilter">
+              <select style={styles.selectStyle}>
                 <option value="" disabled="">
                   Filter By
                 </option>
@@ -48,6 +31,37 @@ const PageBar = () => {
       </Row>
     </Container>
   );
+};
+
+const styles = {
+  pageExcerptStyle: { fontSize: "1rem" },
+
+  pageTitleStyle: {
+    fontFamily: "Freight Display",
+    fontSize: "3rem",
+    lineHeight: "1.125em",
+  },
+
+  headerStyle: {
+    paddingTop: "6em",
+    paddingBottom: "6em",
+  },
+
+  colStyle: {
+    textAlign: "left",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+
+  selectStyle: {
+    width: "50%",
+    fontSize: "1rem",
+    border: "1px solid #cdd1ce",
+    borderRadius: 0,
+    outline: 0,
+    height: 50,
+    padding: "0 1em",
+  },
 };
 
 export default PageBar;
