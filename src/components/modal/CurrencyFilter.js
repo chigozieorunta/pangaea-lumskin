@@ -1,12 +1,5 @@
 import React from "react";
 
-const modalSelect = {
-  maxWidth: 80,
-  padding: "7px 12px",
-  backgroundColor: "#fff",
-  fontSize: 12,
-};
-
 const CurrencyFilter = () => {
   return (
     <select style={modalSelect} defaultValue={"NGN"}>
@@ -153,6 +146,13 @@ const CurrencyFilter = () => {
       <option value="ZMW"> ZMW </option>
     </select>
   );
+};
+
+const modalSelect = {
+  maxWidth: 80,
+  padding: "7px 12px",
+  backgroundColor: "#fff",
+  fontSize: 12,
 };
 
 export default CurrencyFilter;
