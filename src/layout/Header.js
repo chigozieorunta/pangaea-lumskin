@@ -1,7 +1,7 @@
 import React from "react";
-import TopNavigationBar from "../components/header/TopNavigationBar";
-import PageBar from "../components/header/PageBar";
 import Section from "./Section";
+import PageBar from "../components/header/PageBar";
+import TopNavigationBar from "../components/header/TopNavigationBar";
 
 const Header = () => {
   return (
