@@ -3,10 +3,10 @@ import Section from "./Section";
 import PageBar from "../components/header/PageBar";
 import TopNavigationBar from "../components/header/TopNavigationBar";
 
-const Header = () => {
+const Header = ({ cart }) => {
   return (
     <Section bgcolor="#f5f5f4">
-      <TopNavigationBar />
+      <TopNavigationBar cart={cart} />
       <PageBar />
     </Section>
   );
