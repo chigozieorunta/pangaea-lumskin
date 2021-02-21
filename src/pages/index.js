@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HomePage from "./home";
 import { ApolloProvider } from "@apollo/client";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
+import HomePage from "./home";
 
 const client = new ApolloClient({
   uri: "https://pangaea-interviews.now.sh/api/graphql",
