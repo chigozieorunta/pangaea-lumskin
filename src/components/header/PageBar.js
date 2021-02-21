@@ -5,7 +5,7 @@ const PageBar = () => {
   return (
     <Container style={styles.headerStyle} fluid>
       <Row>
-        <Col sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
+        <Col sm={{ span: 10, offset: 1 }} lg={{ span: 8, offset: 2 }}>
           <Row>
             <Col style={styles.colStyle}>
               <div>
