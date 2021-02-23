@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const TopLeftNavigation = () => {
   return (
-    <ul style={menuStyle}>
+    <ul className="topleftnavigation" style={menuStyle}>
       <li>
         <Link to="/shop">Shop</Link>
       </li>
