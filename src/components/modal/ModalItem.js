@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Counter from "./Counter";
 import { Row, Col, Image } from "react-bootstrap";
-import { formatCost } from "../../utils/FormatCost";
+import { formatCost } from "../../utils/formatCost";
 
 const ModalItem = ({
   title,

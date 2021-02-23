@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { formatCost } from "../../utils/FormatCost";
+import { formatCost } from "../../utils/formatCost";
 
 const ModalFooter = ({ totalCost, currency }) => {
   return (

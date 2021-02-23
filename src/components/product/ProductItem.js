@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Image } from "react-bootstrap";
-import { formatCost } from "../../utils/FormatCost";
+import { formatCost } from "../../utils/formatCost";
 
 const ProductItem = ({
   id,
