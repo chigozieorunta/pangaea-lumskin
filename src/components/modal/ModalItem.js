@@ -38,24 +38,32 @@ const ModalItem = ({
     <section style={{ display: itemQuantity > 0 ? "block" : "none" }}>
       <Row style={styles.modalItem}>
         <Col xs={9}>
-          <div style={styles.modalItemTitle}>{title}</div>
-          <small style={styles.modalItemExcerpt}>
-            Unit Price: N{formatCost(itemPrice)}
-          </small>
-          <small style={styles.modalItemExcerpt}>
-            One time purchase of Two Month supply.
-          </small>
-          <div style={styles.modalItemDetails}>
-            <Counter
-              quantity={itemQuantity}
-              onCounterPlus={counterPlus}
-              onCounterMinus={counterMinus}
-            />
-            <span style={styles.modalItemCost}>N{formatCost(itemCost)}</span>
+          <div style={styles.modalPadding}>
+            <div style={styles.modalItemTitle}>{title}</div>
+            <small style={styles.modalItemExcerpt}>
+              Unit Price: N{formatCost(itemPrice)}
+            </small>
+            <small style={styles.modalItemExcerpt}>
+              One time purchase of Two Month supply.
+            </small>
+            <div style={styles.modalItemDetails}>
+              <Counter
+                quantity={itemQuantity}
+                onCounterPlus={counterPlus}
+                onCounterMinus={counterMinus}
+              />
+              <span style={styles.modalItemCost}>N{formatCost(itemCost)}</span>
+            </div>
           </div>
         </Col>
         <Col xs={3}>
-          <Image src={image_url} fluid />
+          <div style={styles.modalPadding}>
+            <Image
+              style={{ maxHeight: 75, height: 100 }}
+              src={image_url}
+              fluid
+            />
+          </div>
         </Col>
       </Row>
     </section>
@@ -64,10 +72,10 @@ const ModalItem = ({
 
 const styles = {
   modalItem: {
-    padding: "15px 20px",
     backgroundColor: "#fff",
     marginBottom: 10,
     alignItems: "center",
+    padding: "15px 20px",
   },
 
   modalItemTitle: {
@@ -88,6 +96,8 @@ const styles = {
   },
 
   modalItemCost: { position: "relative", top: 6, fontSize: 16, marginLeft: 20 },
+
+  modalPadding: {},
 };
 
 export default ModalItem;
