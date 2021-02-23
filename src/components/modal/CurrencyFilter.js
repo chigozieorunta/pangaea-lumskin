@@ -1,8 +1,12 @@
 import React from "react";
 
-const CurrencyFilter = () => {
+const CurrencyFilter = ({ onCurrencyChange }) => {
   return (
-    <select style={modalSelect} defaultValue={"NGN"}>
+    <select
+      style={modalSelect}
+      defaultValue={"NGN"}
+      onChange={(e) => onCurrencyChange(e.target.value)}
+    >
       <option value="USD"> USD </option>
       <option value="EUR"> EUR </option>
       <option value="CAD"> CAD </option>
