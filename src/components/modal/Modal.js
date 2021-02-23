@@ -4,6 +4,9 @@ import CurrencyFilter from "./CurrencyFilter";
 import ModalItem from "./ModalItem";
 import ModalFooter from "./ModalFooter";
 
+import { gql, useQuery } from "@apollo/client";
+import { GetProducts } from "../../utils/GetProducts";
+
 const Modal = ({
   showModal,
   setShowModal,
@@ -11,11 +14,26 @@ const Modal = ({
   totalCost,
   onChangeCart,
   onCurrencyChange,
+  currency,
 }) => {
   let [shoppingCart, setShoppingCart] = useState(cart);
 
+  const { loading, error, data } = useQuery(GetProducts(gql, currency));
+
+  useEffect(() => {
+    updateCart();
+  }, [cart]);
+
+  useEffect(() => {
+    console.log("currency changed");
+  }, [currency]);
+
   const closeModal = () => {
     setShowModal(!showModal);
+  };
+
+  const updateCart = () => {
+    setShoppingCart(cart);
   };
 
   const animateModal = (status) => {
@@ -24,14 +42,12 @@ const Modal = ({
       : { opacity: 0, transition: "all 0.4s", left: 0 };
   };
 
-  const updateCart = () => {
-    setShoppingCart(cart);
-    console.log(cart);
-  };
+  if (loading) return <p>Loading...</p>;
 
-  useEffect(() => {
-    setShoppingCart(cart);
-  }, [cart]);
+  shoppingCart.forEach((product) => {
+    let cartItem = data.products.find((item) => item.id == product.id);
+    product.price = cartItem.price;
+  });
 
   return (
     <section style={animateModal(showModal)}>
@@ -70,7 +86,10 @@ const Modal = ({
           <span>Your Cart</span>
         </div>
         <div>
-          <CurrencyFilter onCurrencyChange={onCurrencyChange} />
+          <CurrencyFilter
+            currency={currency}
+            onCurrencyChange={onCurrencyChange}
+          />
         </div>
         <section style={styles.modalContent}>
           {shoppingCart.map((product, idx) => {
@@ -80,12 +99,13 @@ const Modal = ({
                 product={product}
                 onChangeCart={onChangeCart}
                 onUpdateCart={updateCart}
+                currency={currency}
                 {...product}
               />
             );
           })}
         </section>
-        <ModalFooter totalCost={totalCost} />
+        <ModalFooter currency={currency} totalCost={totalCost} />
       </section>
     </section>
   );
