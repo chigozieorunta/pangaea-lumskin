@@ -11,8 +11,9 @@ const ModalItem = ({
   onChangeCart,
   onUpdateCart,
   product,
+  currency,
 }) => {
-  const [itemPrice] = useState(price);
+  const [itemPrice, setItemPrice] = useState(price);
   const [itemQuantity, setItemQuantity] = useState(quantity);
   const [itemCost, setItemCost] = useState(itemPrice * itemQuantity);
 
@@ -21,10 +22,19 @@ const ModalItem = ({
   }, [quantity]);
 
   useEffect(() => {
+    setItemPrice(price);
+  }, [price]);
+
+  useEffect(() => {
     setItemCost(itemQuantity * itemPrice);
     onChangeCart(product, itemQuantity);
     onUpdateCart();
   }, [itemQuantity]);
+
+  useEffect(() => {
+    setItemCost(itemQuantity * itemPrice);
+    onUpdateCart();
+  }, [itemPrice]);
 
   const counterPlus = () => {
     setItemQuantity(itemQuantity + 1);
@@ -45,7 +55,7 @@ const ModalItem = ({
         <Col xs={9}>
           <div style={styles.modalItemTitle}>{title}</div>
           <small style={styles.modalItemExcerpt}>
-            Unit Price: N{formatCost(itemPrice)}
+            Unit Price: {currency} {formatCost(itemPrice)}
           </small>
           <small style={styles.modalItemExcerpt}>
             One time purchase of Two Month supply.
@@ -56,7 +66,9 @@ const ModalItem = ({
               onCounterPlus={counterPlus}
               onCounterMinus={counterMinus}
             />
-            <span style={styles.modalItemCost}>N{formatCost(itemCost)}</span>
+            <span style={styles.modalItemCost}>
+              {currency} {formatCost(itemCost)}
+            </span>
           </div>
         </Col>
         <Col xs={3}>
