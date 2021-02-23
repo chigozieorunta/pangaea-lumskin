@@ -28,7 +28,8 @@ const styles = {
   colStyle: {
     display: "flex",
     alignItems: "center",
-    padding: "0 2em",
+    padding: "0",
+    justifyContent: "space-between",
   },
 };
 

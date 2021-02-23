@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const TopLeftNavigation = () => {
   return (
-    <ul className="topleftnavigation" style={menuStyle}>
+    <ul style={menuStyle} className="topleftnavigation">
       <li>
         <Link to="/shop">Shop</Link>
       </li>
@@ -25,6 +25,7 @@ const menuStyle = {
   justifyContent: "space-around",
   alignItems: "center",
   width: "15%",
+  minWidth: 250,
 };
 
 export default TopLeftNavigation;

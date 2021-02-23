@@ -5,7 +5,7 @@ import ShoppingCartIcon from "./ShoppingCartIcon";
 
 const TopRightNavigation = ({ cart }) => {
   return (
-    <ul style={styles.menuStyle}>
+    <ul style={styles.menuStyle} className="toprightnavigation">
       <li>
         <Link style={styles.listStyle} to="/account">
           Account

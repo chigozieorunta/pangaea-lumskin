@@ -14,8 +14,20 @@ a:hover {
   text-decoration: none;
 }
 
+.topleftnavigation {
+  display: none !important;
+}
+
+.toprightnavigation {
+  width: auto !important;
+}
+
 @media only screen and (min-width: 767px) {
   .topleftnavigation {
-    display: none;
+    display: flex !important;
+  }
+
+  .toprightnavigation {
+    width: 72.5% !important;
   }
 }
