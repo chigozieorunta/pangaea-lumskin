@@ -8,7 +8,7 @@ const Products = ({ onAddToCart, currency }) => {
   const { loading, error, data } = useQuery(GetProducts(gql, currency));
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <section style={styles.loading}>Loading ...</section>;
   }
 
   if (error) {
@@ -30,6 +30,25 @@ const Products = ({ onAddToCart, currency }) => {
         {...product}
       />
     ));
+};
+
+const styles = {
+  loading: {
+    position: "fixed",
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    backgroundColor: "rgba(102, 102, 102, 0.7)",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "#fff",
+    fontSize: 16,
+    textTransform: "uppercase",
+    letterSpacing: 20,
+  },
 };
 
 export default Products;

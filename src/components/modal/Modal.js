@@ -42,7 +42,7 @@ const Modal = ({
       : { opacity: 0, transition: "all 0.4s", left: 0 };
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <section></section>;
 
   shoppingCart.forEach((product) => {
     let cartItem = data.products.find((item) => item.id == product.id);
@@ -155,6 +155,23 @@ const styles = {
     marginBottom: 0,
     lineHeight: 1.2,
     marginBottom: "3em",
+  },
+
+  loading: {
+    position: "fixed",
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    backgroundColor: "rgba(102, 102, 102, 0.7)",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "#fff",
+    fontSize: 16,
+    textTransform: "uppercase",
+    letterSpacing: 20,
   },
 };
 
