@@ -14,7 +14,6 @@ const CurrencyFilter = ({ onCurrencyChange, currency }) => {
   return (
     <select
       style={modalSelect}
-      defaultValue={currency ? currency : "NGN"}
       onChange={(e) => onTriggerChange(e)}
       value={currencyValue}
     >
