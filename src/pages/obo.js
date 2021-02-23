@@ -1,71 +1,24 @@
-import React, { useState, useEffect } from "react";
-import Layout from "../layout/Layout";
-import Modal from "../components/modal/Modal";
-import Content from "../components/content/Content";
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { ApolloProvider } from "@apollo/client";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
+import HomePage from "./home";
 
-const HomePage = () => {
-  let [cart, setCart] = useState([]);
-  const [currency, setCurrency] = useState("NGN");
-  const [totalCost, setTotalCost] = useState(0);
-  const [showModal, setShowModal] = useState(false);
+const client = new ApolloClient({
+  uri: "https://pangaea-interviews.now.sh/api/graphql",
+  cache: new InMemoryCache(),
+});
 
-  const sumCart = (cart) => {
-    let cost = 0;
-    cart.forEach((item) => {
-      cost += item.quantity * item.price;
-    });
-    setTotalCost(cost);
-  };
-
-  const addToCart = (product) => {
-    setShowModal(!showModal);
-    let cartItem = cart.find((item) => item.id == product.id);
-    if (cartItem != undefined) {
-      cartItem.quantity = cartItem.quantity + 1;
-      setCart(cart);
-    } else {
-      setCart([...cart, product]);
-    }
-  };
-
-  const onChangeCartFromModal = (product, quantity) => {
-    const getProduct = (item) => item.id == product.id;
-    let cartItem = cart.find(getProduct);
-    if (quantity > 0) {
-      cartItem.quantity = quantity;
-    } else {
-      cartItem.quantity = 0;
-    }
-    setCart(cart);
-    sumCart(cart);
-  };
-
-  const onCurrencyChange = (currency) => {
-    setCurrency(currency);
-  };
-
-  useEffect(() => {
-    sumCart(cart);
-  }, [cart]);
-
-  useEffect(() => {
-    sumCart(cart);
-  }, [currency]);
-
+const Index = () => {
   return (
-    <Layout cart={cart}>
-      <Content onAddToCart={addToCart} currency={currency} />
-      <Modal
-        cart={cart}
-        currency={currency}
-        onChangeCart={onChangeCartFromModal}
-        onCurrencyChange={onCurrencyChange}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        totalCost={totalCost}
-      />
-    </Layout>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" component={HomePage} exact={true} />
+        </Switch>
+      </BrowserRouter>
+    </ApolloProvider>
   );
 };
 
-export default HomePage;
+export default Index;
