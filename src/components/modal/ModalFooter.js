@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { formatCost } from "../../utils/FormatCost";
 
-const ModalFooter = ({ totalCost }) => {
-  const [sumTotal, setSumTotal] = useState(totalCost);
-
-  const formatCost = (cost) => {
-    return cost
-      ? cost.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-        })
-      : "0.00";
-  };
-
+const ModalFooter = ({ totalCost, currency }) => {
   return (
     <section style={styles.footerStyle}>
       <div style={styles.footerSummary}>
         <div>Sub-Total</div>
-        <div>N{formatCost(totalCost)}</div>
+        <div>
+          {currency} {formatCost(totalCost)}
+        </div>
       </div>
       <Link to="./" style={styles.footerButton}>
         Proceed To Checkout
