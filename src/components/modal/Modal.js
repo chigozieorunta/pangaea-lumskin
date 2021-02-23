@@ -4,7 +4,14 @@ import CurrencyFilter from "./CurrencyFilter";
 import ModalItem from "./ModalItem";
 import ModalFooter from "./ModalFooter";
 
-const Modal = ({ showModal, setShowModal, onChangeCart, cart, totalCost }) => {
+const Modal = ({
+  showModal,
+  setShowModal,
+  cart,
+  totalCost,
+  onChangeCart,
+  onCurrencyChange,
+}) => {
   let [shoppingCart, setShoppingCart] = useState(cart);
 
   const closeModal = () => {
@@ -63,7 +70,7 @@ const Modal = ({ showModal, setShowModal, onChangeCart, cart, totalCost }) => {
           <span>Your Cart</span>
         </div>
         <div>
-          <CurrencyFilter />
+          <CurrencyFilter onCurrencyChange={onCurrencyChange} />
         </div>
         <section style={styles.modalContent}>
           {shoppingCart.map((product, idx) => {
