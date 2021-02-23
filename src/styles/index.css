@@ -22,6 +22,10 @@ a:hover {
   width: auto !important;
 }
 
+.account {
+  display: none !important;
+}
+
 @media only screen and (min-width: 767px) {
   .topleftnavigation {
     display: flex !important;
@@ -29,5 +33,9 @@ a:hover {
 
   .toprightnavigation {
     width: 72.5% !important;
+  }
+
+  .account {
+    display: block;
   }
 }

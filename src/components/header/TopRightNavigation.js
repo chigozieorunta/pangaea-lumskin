@@ -7,7 +7,7 @@ const TopRightNavigation = ({ cart }) => {
   return (
     <ul style={styles.menuStyle} className="toprightnavigation">
       <li>
-        <Link style={styles.listStyle} to="/account">
+        <Link style={styles.listStyle} className="account" to="/account">
           Account
         </Link>
       </li>
