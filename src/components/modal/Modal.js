@@ -5,7 +5,7 @@ import ModalItem from "./ModalItem";
 import ModalFooter from "./ModalFooter";
 
 import { gql, useQuery } from "@apollo/client";
-import { GetProducts } from "../../utils/GetProducts";
+import { getProducts } from "../../utils/getProducts";
 
 const Modal = ({
   showModal,
@@ -18,7 +18,7 @@ const Modal = ({
 }) => {
   let [shoppingCart, setShoppingCart] = useState(cart);
 
-  const { loading, error, data } = useQuery(GetProducts(gql, currency));
+  const { loading, error, data } = useQuery(getProducts(gql, currency));
 
   useEffect(() => {
     updateCart();

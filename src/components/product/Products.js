@@ -2,10 +2,10 @@ import React from "react";
 import ProductItem from "./ProductItem";
 
 import { gql, useQuery } from "@apollo/client";
-import { GetProducts } from "../../utils/GetProducts";
+import { getProducts } from "../../utils/getProducts";
 
 const Products = ({ onAddToCart, currency }) => {
-  const { loading, error, data } = useQuery(GetProducts(gql, currency));
+  const { loading, error, data } = useQuery(getProducts(gql, currency));
 
   if (loading) {
     return <section style={styles.loading}>Loading ...</section>;
