@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Counter from "./Counter";
 import { Image } from "react-bootstrap";
+import { formatCost } from "../../utils/FormatCost";
 
 const ModalItem = ({
   title,
@@ -8,6 +9,7 @@ const ModalItem = ({
   quantity,
   image_url,
   onChangeCart,
+  onUpdateCart,
   product,
 }) => {
   const [itemPrice] = useState(price);
@@ -21,6 +23,7 @@ const ModalItem = ({
   useEffect(() => {
     setItemCost(itemQuantity * itemPrice);
     onChangeCart(product, itemQuantity);
+    onUpdateCart();
   }, [itemQuantity]);
 
   const counterPlus = () => {
@@ -29,14 +32,6 @@ const ModalItem = ({
 
   const counterMinus = () => {
     setItemQuantity(itemQuantity - 1);
-  };
-
-  const formatCost = (cost) => {
-    return cost
-      ? cost.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-        })
-      : "0.00";
   };
 
   return (
