@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../layout/Layout";
-import Content from "../components/content/Content";
 import Modal from "../components/modal/Modal";
+import Content from "../components/content/Content";
 
 const HomePage = () => {
   let [cart, setCart] = useState([]);
@@ -33,10 +33,11 @@ const HomePage = () => {
     const getProduct = (item) => item.id == product.id;
     let cartItem = cart.find(getProduct);
     let cartItemIndex = cart.findIndex(getProduct);
-    if (quantity) {
+    if (quantity > 0) {
       cartItem.quantity = quantity;
     } else {
-      cart.splice(cartItemIndex, 1);
+      cartItem.quantity = 0;
+      //cart.splice(cartItemIndex, 0);
     }
     setCart(cart);
     sumCart(cart);
