@@ -35,29 +35,32 @@ const ModalItem = ({
   };
 
   return (
-    <section style={{ display: itemQuantity > 0 ? "block" : "none" }}>
+    <section
+      style={{
+        display: itemQuantity > 0 ? "block" : "none",
+        overflowX: "hidden",
+      }}
+    >
       <Row style={styles.modalItem}>
         <Col xs={9}>
-          <div style={styles.modalPadding}>
-            <div style={styles.modalItemTitle}>{title}</div>
-            <small style={styles.modalItemExcerpt}>
-              Unit Price: N{formatCost(itemPrice)}
-            </small>
-            <small style={styles.modalItemExcerpt}>
-              One time purchase of Two Month supply.
-            </small>
-            <div style={styles.modalItemDetails}>
-              <Counter
-                quantity={itemQuantity}
-                onCounterPlus={counterPlus}
-                onCounterMinus={counterMinus}
-              />
-              <span style={styles.modalItemCost}>N{formatCost(itemCost)}</span>
-            </div>
+          <div style={styles.modalItemTitle}>{title}</div>
+          <small style={styles.modalItemExcerpt}>
+            Unit Price: N{formatCost(itemPrice)}
+          </small>
+          <small style={styles.modalItemExcerpt}>
+            One time purchase of Two Month supply.
+          </small>
+          <div style={styles.modalItemDetails}>
+            <Counter
+              quantity={itemQuantity}
+              onCounterPlus={counterPlus}
+              onCounterMinus={counterMinus}
+            />
+            <span style={styles.modalItemCost}>N{formatCost(itemCost)}</span>
           </div>
         </Col>
         <Col xs={3}>
-          <div style={styles.modalPadding}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <Image
               style={{ maxHeight: 75, height: 100 }}
               src={image_url}
