@@ -2,7 +2,15 @@ import React from "react";
 import { Col, Image } from "react-bootstrap";
 import { formatCost } from "../../utils/FormatCost";
 
-const ProductItem = ({ id, title, price, image_url, product, onAddToCart }) => {
+const ProductItem = ({
+  id,
+  title,
+  price,
+  image_url,
+  product,
+  onAddToCart,
+  currency,
+}) => {
   return (
     <Col key={id} sm={6} md={4} style={styles.colStyle}>
       <Image
@@ -12,7 +20,9 @@ const ProductItem = ({ id, title, price, image_url, product, onAddToCart }) => {
         fluid
       />
       <div style={styles.productTitleStyle}>{title}</div>
-      <div>From: NGN{formatCost(price)}</div>
+      <div>
+        From: {currency} {formatCost(price)}
+      </div>
       <button style={styles.buttonStyle} onClick={() => onAddToCart(product)}>
         Add To Cart
       </button>
