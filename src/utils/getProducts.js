@@ -1,6 +1,6 @@
-export const GetProducts = (gql, currency) => {
+export const getProducts = (gql, currency) => {
   return gql`
-    query GetProducts {
+    query getProducts {
       products {
         id
         title
