@@ -3,7 +3,7 @@ import Section from "../../layout/Section";
 import Products from "../../components/product/Products";
 import { Container, Row, Col } from "react-bootstrap";
 
-const Content = ({ onShowModal, onAddToCart }) => {
+const Content = ({ onShowModal, onAddToCart, currency }) => {
   return (
     <>
       <Section bgcolor="#e2e6e3">
@@ -11,7 +11,11 @@ const Content = ({ onShowModal, onAddToCart }) => {
           <Row>
             <Col lg={{ span: 8, offset: 2 }}>
               <Row>
-                <Products onShowModal={onShowModal} onAddToCart={onAddToCart} />
+                <Products
+                  onShowModal={onShowModal}
+                  onAddToCart={onAddToCart}
+                  currency={currency}
+                />
               </Row>
             </Col>
           </Row>
