@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Counter from "./Counter";
-import { Image } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 import { formatCost } from "../../utils/FormatCost";
 
 const ModalItem = ({
@@ -35,9 +35,9 @@ const ModalItem = ({
   };
 
   return (
-    <div style={{ display: itemQuantity > 0 ? "block" : "none" }}>
-      <div style={styles.modalItem}>
-        <div>
+    <section style={{ display: itemQuantity > 0 ? "block" : "none" }}>
+      <Row style={styles.modalItem}>
+        <Col xs={9}>
           <div style={styles.modalItemTitle}>{title}</div>
           <small style={styles.modalItemExcerpt}>
             Unit Price: N{formatCost(itemPrice)}
@@ -53,12 +53,12 @@ const ModalItem = ({
             />
             <span style={styles.modalItemCost}>N{formatCost(itemCost)}</span>
           </div>
-        </div>
-        <div>
-          <Image style={{ height: 80 }} src={image_url} fluid />
-        </div>
-      </div>
-    </div>
+        </Col>
+        <Col xs={3}>
+          <Image src={image_url} fluid />
+        </Col>
+      </Row>
+    </section>
   );
 };
 
@@ -67,13 +67,13 @@ const styles = {
     padding: "15px 20px",
     backgroundColor: "#fff",
     marginBottom: 10,
-    display: "flex",
-    justifyContent: "space-between",
     alignItems: "center",
   },
 
   modalItemTitle: {
     fontWeight: "700",
+    lineHeight: "16px",
+    marginBottom: 5,
   },
 
   modalItemExcerpt: {
@@ -83,11 +83,11 @@ const styles = {
 
   modalItemDetails: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     alignItems: "center",
   },
 
-  modalItemCost: { position: "relative", top: 6, fontSize: 16 },
+  modalItemCost: { position: "relative", top: 6, fontSize: 16, marginLeft: 20 },
 };
 
 export default ModalItem;
