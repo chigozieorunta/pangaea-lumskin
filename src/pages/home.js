@@ -5,6 +5,7 @@ import Content from "../components/content/Content";
 
 const HomePage = () => {
   let [cart, setCart] = useState([]);
+  const [currency, setCurrency] = useState("NGN");
   const [totalCost, setTotalCost] = useState(0);
   const [showModal, setShowModal] = useState(false);
 
@@ -22,33 +23,43 @@ const HomePage = () => {
     if (cartItem != undefined) {
       cartItem.quantity = cartItem.quantity + 1;
       setCart(cart);
-      sumCart(cart);
     } else {
       setCart([...cart, product]);
-      sumCart(cart);
     }
   };
 
   const onChangeCartFromModal = (product, quantity) => {
     const getProduct = (item) => item.id == product.id;
     let cartItem = cart.find(getProduct);
-    let cartItemIndex = cart.findIndex(getProduct);
     if (quantity > 0) {
       cartItem.quantity = quantity;
     } else {
       cartItem.quantity = 0;
-      //cart.splice(cartItemIndex, 0);
     }
     setCart(cart);
     sumCart(cart);
   };
 
+  const onCurrencyChange = (currency) => {
+    setCurrency(currency);
+  };
+
+  useEffect(() => {
+    sumCart(cart);
+  }, [cart]);
+
+  useEffect(() => {
+    sumCart(cart);
+  }, [currency]);
+
   return (
     <Layout cart={cart}>
-      <Content onAddToCart={addToCart} />
+      <Content onAddToCart={addToCart} currency={currency} />
       <Modal
         cart={cart}
+        currency={currency}
         onChangeCart={onChangeCartFromModal}
+        onCurrencyChange={onCurrencyChange}
         showModal={showModal}
         setShowModal={setShowModal}
         totalCost={totalCost}
