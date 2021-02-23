@@ -17,6 +17,11 @@ const Modal = ({ showModal, setShowModal, onChangeCart, cart, totalCost }) => {
       : { opacity: 0, transition: "all 0.4s", left: 0 };
   };
 
+  const updateCart = () => {
+    setShoppingCart(cart);
+    console.log(cart);
+  };
+
   useEffect(() => {
     setShoppingCart(cart);
   }, [cart]);
@@ -67,6 +72,7 @@ const Modal = ({ showModal, setShowModal, onChangeCart, cart, totalCost }) => {
                 key={idx}
                 product={product}
                 onChangeCart={onChangeCart}
+                onUpdateCart={updateCart}
                 {...product}
               />
             );
