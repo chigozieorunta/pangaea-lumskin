@@ -17,7 +17,7 @@ const Modal = ({
   currency,
 }) => {
   let [shoppingCart, setShoppingCart] = useState(cart);
-  console.log(getProducts);
+
   const { loading, error, data } = useQuery(getProducts(gql, currency));
 
   useEffect(() => {
