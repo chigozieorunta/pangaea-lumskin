@@ -14,7 +14,7 @@ const TopRightNavigation = ({ cart }) => {
       <li>
         <Link style={styles.listStyle} to="/cart">
           <ShoppingCartIcon />
-          <Badge total={cart.length} />
+          <Badge total={cart.filter((item) => item.quantity > 0).length} />
         </Link>
       </li>
       <li style={styles.listStyle}>
