@@ -13,3 +13,9 @@ a:hover {
   color: #000;
   text-decoration: none;
 }
+
+@media only screen and (min-width: 767px) {
+  .topleftnavigation {
+    display: none;
+  }
+}
